@@ -5,7 +5,7 @@ from django.db import models
 
 class Question(models.Model):
     text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('Date')
+    pub_date = models.DateTimeField('Date', auto_now_add=True)
 
 
 class Choice(models.Model):

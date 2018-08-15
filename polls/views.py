@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404
-
 from django.urls import reverse
 # Create your views here.
 from django.http import HttpResponseRedirect
@@ -37,3 +36,18 @@ def vote(request, question_id):
         selected_choice.votes += 1
         selected_choice.save()
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+
+
+def add_poll(request):
+    query = request.POST
+    text = query["text"]
+    choices = request.POST.getlist('choices')
+    print(type(choices))
+    if not text or len(choices) <= 1:
+        return HttpResponseRedirect(reverse('polls:index'))
+    question = Question(text=text)
+    question.save()
+    for choice in choices:
+        if choice:
+            question.choice_set.create(text=choice, votes=0)
+    return HttpResponseRedirect(reverse('polls:index'))
