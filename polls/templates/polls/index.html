@@ -11,27 +11,47 @@
 </head>
 
 <body>
-    {% if latest_question_list %}
-    <ul>
-        {% for question in latest_question_list %}
-        <li>
-            <a href="{% url 'polls:detail' question.id %}">{{question.text}}</a>
-        </li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p> No Polls </p>
-    {% endif %} {% if error_message %}
-    <p>{{error_message}}</p>
-    {% endif %}
-    <form action="{% url 'polls:add_poll' %}" method="POST">
-        {% csrf_token %}
-        <input type="text" name="text" id="text">
-        <input type="text" name="choices" id="choice0">
-        <input type="text" name="choices" id="choice1">
-        <input type="text" name="choices" id="choice2">
-        <input type="submit" value="Add">
-    </form>
+    <div id="index">
+        {% if latest_question_list %}
+        <ul class="poll-list">
+            {% for question in latest_question_list %}
+            <li class="poll">
+                <a href="{% url 'polls:detail' question.id %}">{{question.text}}</a>
+            </li>
+            <hr> {% endfor %}
+        </ul>
+        {% else %}
+        <p> No Polls </p>
+        {% endif %} {% if error_message %}
+        <p>{{error_message}}</p>
+        {% endif %}
+        <form action="{% url 'polls:add_poll' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="text" id="text" placeholder="Title">
+            <input type="text" name="choices" id="choice0" placeholder="Choice">
+            <input type="text" name="choices" id="choice1" placeholder="Choice">
+            <div id="choiceContainer">
+
+            </div>
+
+            <button id="add" type="button">Add</button>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script>
+        let counter = 2
+        //document.addEventListener('click', (event) => { console.log(event) })
+        const choiceContainer = document.querySelector('#choiceContainer');
+        const addChoice = document.querySelector('#add');
+        addChoice.addEventListener('click', () => {
+            choiceContainer.innerHTML += `<input type="text" name="choices" oncontextmenu="remove(event)" id="choice${counter}" placeholder="Right click to remove">`;
+            counter++;
+        })
+        function remove(event) {
+            event.preventDefault();
+            event.target.remove();
+        }
+    </script>
 </body>
 
 </html>

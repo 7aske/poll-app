@@ -22,7 +22,56 @@ ul li a {
   text-decoration: none;
 }
 
-form .input-group {
+#index {
+  width: 600px;
+  margin: auto;
+}
+
+#index .poll-list {
+  width: 300px;
+  margin: auto;
+}
+
+#index .poll-list hr {
+  margin: 0;
+  padding: 0;
+}
+
+#index .poll-list .poll {
+  border-radius: 5px;
+  text-align: center;
+}
+
+#index .poll-list .poll a {
+  color: black;
+  font-size: 24px;
+  display: inline-block;
+  width: 300px;
+  padding: 10px;
+}
+
+#index .poll-list .poll:hover {
+  cursor: pointer;
+  background-color: grey;
+}
+
+#index .poll-list .poll:hover a {
+  color: white;
+}
+
+#index form input {
+  display: block;
+  margin: 10px auto;
+  height: 2em;
+  border-radius: 5px;
+  width: 300px;
+}
+
+#index h1, #index p {
+  text-align: center;
+}
+
+#index .input-group {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 20px;
@@ -31,17 +80,32 @@ form .input-group {
   border-radius: 5px;
 }
 
-form .input-group:hover {
+#index .input-group:hover {
   background-color: grey;
+  cursor: pointer;
 }
 
-form input[type="submit"] {
+#index .input-group label {
+  display: inline-block;
+  width: 100%;
+  font-size: 24px;
+  text-align: center;
+}
+
+#index input[type="submit"], #index button {
+  display: block;
+  margin: 10px auto;
+  width: 300px;
   border: none;
   border-radius: 6px;
   background-color: #555555;
   color: white;
-  margin-left: 10px;
-  padding: 10px 20px;
+  line-height: 1px;
+  padding: 20px 20px;
+}
+
+#index input[type="submit"] {
+  font-size: 24px;
 }
 
 .active {

@@ -11,16 +11,20 @@
 </head>
 
 <body>
-    <h1>{{question.text}}</h1>
-    <ul>
-        {% for choice in question.choice_set.all %}
-        <li>
-            {{choice.text}} -- {{choice.votes}} vote{{choice.votes|pluralize}}
-        </li>
-        {% endfor %}
-    </ul>
+    <div id="index">
+        <h1>{{question.text}}</h1>
+        <ul class="poll-list">
+            {% for choice in question.choice_set.all %}
+            <li class="poll">
+                <a href="#">{{choice.text}} -- {{choice.votes}} vote{{choice.votes|pluralize}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'polls:detail' question.id %}"><button>Vote again</button></a>
+    </div>
 
-    <a href="{% url 'polls:detail' question.id %}">Vote Again</a>
+
+
 </body>
 
 </html>

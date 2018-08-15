@@ -14,23 +14,69 @@ ul
 		a
 			
 			text-decoration: none
-
-form
+#index
+	width: 600px
+	margin: auto
+	.poll-list
+		width: 300px
+		margin: auto
+		hr
+			margin: 0
+			padding: 0
+		.poll
+			a	
+				color: black
+				font-size: 24px
+				display: inline-block
+				width: 300px
+				padding: 10px
+			border-radius: 5px
+			text-align: center
+			//padding: 10px
+			&:hover
+				cursor: pointer
+				background-color: grey
+				a
+					color: white
+	form
+		input
+			display: block
+			margin: 10px auto
+			height: 2em
+			border-radius: 5px
+			width: 300px
+		input[name="text"]
+			
+		input[name="choices"]
+	h1,p
+		text-align: center
 	.input-group
 		&:hover
 			background-color: grey
+			cursor: pointer
 		box-sizing: border-box
 		padding: 20px
 		display: block
 		cursor: pointer
 		border-radius: 5px
-	input[type="submit"]
+		label
+			display: inline-block
+			width: 100%
+			font-size: 24px
+			text-align: center
+	input[type="submit"],button
+		display: block
+		margin: 10px auto
+		width: 300px
 		border: none
 		border-radius: 6px
 		background-color: #555555
 		color: white
-		margin-left: 10px
-		padding: 10px 20px
+		line-height: 1px
+		padding: 20px 20px	
+	input[type="submit"]
+		font-size: 24px	
+	
 
 	
 .active
